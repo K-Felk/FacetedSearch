@@ -28,7 +28,11 @@ class FacetedSearchPlugin extends Omeka_Plugin_AbstractPlugin
     	}
 
 
-
+    public function hookConfigForm()
+    {
+ 
+        include 'config-form.php';
+    }
 
 }
 
