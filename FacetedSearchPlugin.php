@@ -6,10 +6,8 @@ class FacetedSearchPlugin extends Omeka_Plugin_AbstractPlugin
 
 	public function hookInstall(){
         
-
-
-		set_option('test_option', json_encode(array()));
-    	}
+		set_option('test_option', "");
+    }
 
 	public function hookUninstall() {
 		delete_option('test_option');
@@ -19,12 +17,12 @@ class FacetedSearchPlugin extends Omeka_Plugin_AbstractPlugin
 
 	public function hookConfig($args){
         $post = $args['post'];
-        if(isset($post['elements'])) {
-            set_option('test_option', json_encode($post['elements']));
+        if(isset($post['test_option'])) {
+            set_option('test_option', $post['test_option']);
         } else {
-            set_option('test_option', json_encode(array()));
+            set_option('test_option', "");
         }
-        set_option('test_option', $post['test_option']);
+        
     	}
 
 
